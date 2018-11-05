@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册新用户</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .login-logo img{
+            margin-left: 20px;
+            height: 45px;
+        }
+        .bg-img{
+            width: 100%;
+            height: 700px;
+        }
+        #container{
+            position: relative;
+        }
+        #reg{
+            margin: 0 auto;
+            width: 440px;
+            height: 496px;
+            background-color: #fff;
+            position: absolute;
+            top: 150px;
+            left: 440px;
+        }
+        #reg-conent{
+            margin: 0 auto;
+            width: 340px;
+            height: 496px;
+           
+        }
+        
+        #reg-conent-text{
+            color: #333;
+            cursor: default;
+            font-size: 18px;
+            width: 120px;
+            text-align: center;
+            padding-bottom: 16px;
+            padding-top: 40px;
+            border-bottom: 2px solid #00c8c8;
+            margin-bottom: 25px;
+        }
+        .input-box input{
+            height: 18px;
+            padding: 10px;
+            width: 310px;
+            margin-top: 20px;
+        }
+        .reg-txt{
+            text-align: right;
+            margin: 20px auto;
+        }
+        #btn-register{
+            width: 100%;
+            height: 40px;
+            padding: 0;
+            font-size: 16px;
+            line-height: 40px;
+            color: #fff;
+            background: #00c8c8;
+            border-radius: 0;
+        }
+        .reg-tips{
+            margin: 40px -30px 30px;
+            text-align: center;
+            
+        }
+        .reg-tips span{
+            font-size: 14px;
+            height: 30px;
+            line-height: 30px;
+            padding: 0 10px;
+            color: #999;
+            
+            
+        }
+        .footer-text{
+            text-align: center;
+            margin: 0px;
+            color: #8C8C8C;
+            font-size: 12px;
+            line-height: 34px;
+        }
+    </style>
+</head>
+
+<body class="customer-account-create">
+    <header>
+        <div class="login-logo">
+            <a href="http://www.ioart.com/"><img src="images/logo-h@2x.png" alt=""></a>
+        </div>
+    </header>
+    <section>
+        <div class="container">
+            <img src="images/login-bg.jpg" alt="" class="bg-img">
+            <div id="reg">
+                <table></table>
+
+                <div id="reg-conent">
+
+                    <div id="reg-conent-text"> 注册新用户</div>
+
+                    <div class="input-box">
+                        <input type="email" name="login_name" id="login_name" value="" placeholder="邮箱" onblur="ck_name_em()">
+                        <script src="js/common.js"></script>
+                        <script>
+                            //判断名称是否为空
+                            function ck_name_em() {
+                                
+                                var span = $("ck-name-em");
+                                span.innerHTML = '';
+                                if ($("login_name").value == '') {
+                                    span.innerHTML = '用户名不能为空';
+                                }
+
+                            }
+
+
+                        </script>
+                        <span id="ck-name-em"></span>
+                    </div>
+                    <div class="input-box">
+                        <input type="password" name="login_pwd1" id="login_pwd1" value="" placeholder="密码" onblur="ck_pwd1_em(),ck_pwd_same()">
+                        <span id="ck-pwd-em"></span>
+
+                        <script>
+
+                            //判断密码是否为空
+                            function ck_pwd1_em() {
+
+
+                                var span = $("ck-pwd-em");
+                                span.innerHTML = '';
+                                if ($("login_pwd1").value == '') {
+                                    span.innerHTML = '密码不能为空';
+                                }
+
+
+                            }
+                            // 判断密码是否一致
+                            function ck_pwd_same(){
+
+                                var span=$("ck-pwd-same");
+                                console.log($('login_pwd1').currentStyle);
+                                span.innerHTML='';
+                                if($('login_pwd1').value!=$('login_pwd2').value){
+                                    span.innerHTML='密码不一致！';
+                                }
+                            }
+                        </script>
+                        
+                    </div>
+                    <div class="input-box">
+                        <input type="password" name="login_pwd2" id="login_pwd2" value="" placeholder="确认密码" onblur="ck_pwd_same()">
+                        <span id="ck-pwd-same"></span>
+
+                    </div>
+                    <div class="reg-txt">
+                        <a href="http://www.ioart.com/customer/account/">立即登录</a>
+                    </div>
+
+                    <button type="submit" id="btn-register" onclick="reg()">确认注册</button>
+                    <script>
+                        //判断能否提交注册
+                        function reg(){
+                            var span1=$('ck-name-em').innerHTML,span2=$("ck-pwd-em").innerHTML,span3=$("ck-pwd-same").innerHTML;
+                            console.log(span1!='');
+                            console.log(span2!='');
+                            console.log(span3!='');
+                           //判断填写是否有错
+                            if(span1!=''||span2!=''||span3!=''){
+                                console.log('填写错误');
+                            }else{
+                                var xhr=new createXhr();
+                                var name=$('login_name').value,pwd=$('login_pwd1').value;
+                                //todo 用ajax提交到后台处理
+                                console.log('可以注册');
+                               
+                            }
+                        }
+                    </script>
+                    <div class="reg-tips">
+                        <span>加入我们，即刻开始享受不一样的生活</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-text">
+            Copyright © 2015 <a href="http://www.ioart.com/">ioart.</a> All Rights Reserved
+        </div>
+    </footer>
+
+</body>
+
+</html>
