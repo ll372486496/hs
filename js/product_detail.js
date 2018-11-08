@@ -16,3 +16,21 @@ for(var btn of btns){
     
   }
 }
+//标签切换
+var as=document.querySelectorAll('#tab>li>[data-toggl=tab]');
+for(var a of as){
+  a.onclick=function(){
+   var a=this;
+   var id=a.getAttribute('data-id');
+   var div=document.querySelector(`#${id}`);
+   var divs=document.querySelectorAll('.contents>div');
+   console.log(divs);
+   for(var d of divs){
+    d.style.display='none';
+    
+  }
+  
+  div.style.display='block';
+   
+  }
+}
