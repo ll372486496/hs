@@ -90,6 +90,29 @@
             font-size: 12px;
             line-height: 34px;
         }
+        .ck-info{
+            display: none;
+        }
+        .hid{
+            display: none;
+        }
+        .dis input{
+            height: 18px;
+            padding: 10px;
+            width: 200px;
+            margin-top: 20px;
+        }
+        .dis button{
+            height: 42px;
+            margin-left: 10px;
+        }
+        .dis button a{
+            display: inline-block;
+            height: 42px; 
+            line-height: 42px;
+            color: #aaa;
+            text-decoration: none;
+        }
     </style>
 </head>
 
@@ -110,81 +133,51 @@
                     <div id="reg-conent-text"> 注册新用户</div>
 
                     <div class="input-box">
-                        <input type="email" name="login_name" id="login_name" value="" placeholder="邮箱" onblur="ck_name_em()">
-                        <script src="js/common.js"></script>
-                        <script>
-                            //判断名称是否为空
-                            function ck_name_em() {
-                                
-                                var span = $("ck-name-em");
-                                span.innerHTML = '';
-                                if ($("login_name").value == '') {
-                                    span.innerHTML = '用户名不能为空';
-                                }
+                        <input type="email" name="login_name" id="login_name" value="" placeholder="邮箱或手机">
+                        <span class="ck-info">error</span>
+                        <span class="ck-info">手机</span>
 
-                            }
-
-
-                        </script>
-                        <span id="ck-name-em"></span>
+                    </div>
+                    <div class="hid">
+                        <input type="text" placeholder="验证码">
+                        <button class="">
+                            <a href="#">获取短信验证码</a>
+                        </button>
                     </div>
                     <div class="input-box">
-                        <input type="password" name="login_pwd1" id="login_pwd1" value="" placeholder="密码" onblur="ck_pwd1_em(),ck_pwd_same()">
-                        <span id="ck-pwd-em"></span>
-
-                        <script>
-
-                            //判断密码是否为空
-                            function ck_pwd1_em() {
+                        <input type="password" name="login_pwd1" id="login_pwd1" placeholder="密码">
 
 
-                                var span = $("ck-pwd-em");
-                                span.innerHTML = '';
-                                if ($("login_pwd1").value == '') {
-                                    span.innerHTML = '密码不能为空';
-                                }
 
 
-                            }
-                            // 判断密码是否一致
-                            function ck_pwd_same(){
-
-                                var span=$("ck-pwd-same");
-                                console.log($('login_pwd1').currentStyle);
-                                span.innerHTML='';
-                                if($('login_pwd1').value!=$('login_pwd2').value){
-                                    span.innerHTML='密码不一致！';
-                                }
-                            }
-                        </script>
-                        
                     </div>
                     <div class="input-box">
-                        <input type="password" name="login_pwd2" id="login_pwd2" value="" placeholder="确认密码" onblur="ck_pwd_same()">
-                        <span id="ck-pwd-same"></span>
+                        <input type="password" name="login_pwd2" id="login_pwd2" placeholder="确认密码"
+                            ">
+                        <span class=" ck-info"></span>
 
                     </div>
                     <div class="reg-txt">
                         <a href="http://www.ioart.com/customer/account/">立即登录</a>
                     </div>
 
-                    <button type="submit" id="btn-register" onclick="reg()">确认注册</button>
+                    <button type="button" id="btn-register" onclick="reg()">确认注册</button>
                     <script>
                         //判断能否提交注册
-                        function reg(){
-                            var span1=$('ck-name-em').innerHTML,span2=$("ck-pwd-em").innerHTML,span3=$("ck-pwd-same").innerHTML;
-                            console.log(span1!='');
-                            console.log(span2!='');
-                            console.log(span3!='');
-                           //判断填写是否有错
-                            if(span1!=''||span2!=''||span3!=''){
+                        function reg() {
+                            var span1 = $('ck-name-em').innerHTML, span2 = $("ck-pwd-em").innerHTML, span3 = $("ck-pwd-same").innerHTML;
+                            console.log(span1 != '');
+                            console.log(span2 != '');
+                            console.log(span3 != '');
+                            //判断填写是否有错
+                            if (span1 != '' || span2 != '' || span3 != '') {
                                 console.log('填写错误');
-                            }else{
-                                var xhr=new createXhr();
-                                var name=$('login_name').value,pwd=$('login_pwd1').value;
+                            } else {
+                                var xhr = new createXhr();
+                                var name = $('login_name').value, pwd = $('login_pwd1').value;
                                 //todo 用ajax提交到后台处理
                                 console.log('可以注册');
-                               
+
                             }
                         }
                     </script>
@@ -200,7 +193,7 @@
             Copyright © 2015 <a href="http://www.ioart.com/">ioart.</a> All Rights Reserved
         </div>
     </footer>
-
+    <script src="js/common.js"></script>
 </body>
 
 </html>
