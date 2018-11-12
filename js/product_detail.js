@@ -34,3 +34,17 @@ for(var a of as){
    
   }
 }
+//详情图切换
+var img_list=document.getElementById('pd-img-list');
+var img_detail=document.getElementById('img-detail');
+var imgs_detail=img_detail.querySelectorAll('img');
+var imgs=img_list.querySelectorAll('li img');
+for(var i=0;i<imgs.length;i++){
+  imgs[i].onclick=function(){
+    this.style.border='1px solid #000';
+    for(var j=0;j<imgs_detail.length;j++){
+      imgs_detail[j].className="img-none";
+    }
+    imgs_detail[i].className='';
+  }
+}

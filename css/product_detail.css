@@ -24,3 +24,18 @@ ul#tab  li>a {
 #content2{
   display: none;
 }
+.pd-img img{
+  width: 120px;
+  height: 120px;
+  padding: 10px;
+  border:1px solid #ccc;
+  margin-top: 20px;
+}
+
+.col-6 img{
+  width: 510px;
+  height: 510px;
+}
+.img-none{
+  display: none;
+}
