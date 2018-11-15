@@ -148,7 +148,7 @@
     float: left;
 }
 .pro-category .pro-left .cap{
-    align:top;
+   
 }
 .pro-category .pro-left table{
     width: 100%;
@@ -274,18 +274,46 @@
     color: #333;
 }
 .artists .designer{
+    width: 100%;
     margin: 40px auto;
-    display: flex;
-    justify-content: space-between;
+    height: 180px;
+    position: relative;
+    
 }
-.artists .designer img{
+.designer img:first-child,
+.designer img:last-child{
+   position: relative;
+   
+    width: 4%;
+    float: left;
+    
+}
+.designer .designers{
+    width: 1100px;
+    height: 180px;
+    overflow: hidden;
+    float: left;
+    position: relative;
+}
+.designer-container{
+    width: 180%;
+    position: absolute;
+}
+.artists .designer .img{
+   
+    overflow: hidden;
+    display: inline-block;
+}
+.artists .designer .img img{
+    padding: 10px;
     width: 180px;
     height: 180px;
     border-radius: 50%;
     
     transition: all 1s linear;
 }
-.artists .designer img:hover{
+
+.artists .designer .img img:hover{
     transform: scale(1.1);
 }
 .artists .menu .showmore{
