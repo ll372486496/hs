@@ -36,7 +36,8 @@ var designers=document.querySelectorAll('.designer-container');
    
     if(moved1<2){
       moved1++;//console.log(moved1);
-      designers[1].style.left=`-${moved1*180}px`;
+      
+      designers[1].style.left=`-${moved1*180}px`;      
     }
   }
   nextBtns[1].onclick=function(){
