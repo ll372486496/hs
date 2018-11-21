@@ -37,7 +37,6 @@ for(var a of as){
 //详情图切换
 var img_list=document.getElementById('pd-img-list');
 var img_detail=document.getElementById('img-detail');
-var imgs_detail=img_detail.querySelectorAll('img');
 var imgs_detail=img_detail.querySelector('img');
 var imgs=img_list.querySelectorAll('li img');
 
