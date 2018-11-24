@@ -39,3 +39,20 @@ ul#tab  li>a {
 .img-none{
   display: none;
 }
+#img-detail{
+  height: 420px;
+  background: url(../images/note1-md.jpg) no-repeat;
+  background-size: 100% 100%;
+  overflow: hidden;
+}
+#lgDiv{
+  height: 420px;
+  width: 380px;
+  overflow: hidden;
+  background: url(../images/note1-lg.jpg) no-repeat;
+  background-size: 1000px 1000px;
+  background-position: center center;
+ 
+  display: none;
+  
+}

@@ -35,17 +35,21 @@
     <div class="row">
       <div class="col-2">
         <ul class="list-unstyled" id="pd-img-list">
-          <li class="pd-img"><img src="images/pd-img1.jpg" alt=""></li>
-          <li class="pd-img"><img src="images/pd-img2.jpg" alt=""></li>
-          <li class="pd-img"><img src="images/pd-img3.jpg" alt=""></li>
+          <li class="pd-img"><img src="images/pd-img1.jpg" data-md='images/note1-md.jpg' data-lg='images/note1-lg.jpg'></li>
+          <li class="pd-img"><img src="images/pd-img2.jpg" data-md='images/note2-md.jpg' data-lg='images/note2-lg.jpg'></li>
+          <li class="pd-img"><img src="images/pd-img3.jpg" data-md='images/note3-md.jpg' data-lg='images/note3-lg.jpg'></li>
         </ul>
       </div>
-      <div class="col-6 " id="img-detail">
-        <img src="images/pd-img1.jpg" >
-        
-      </div>
-      <div class="col-4">
+      <div class="col-6 " id="img-detail"></div>
+      <div  id="lgDiv" class="col-4"></div>
+      
+
+    </div>
+    <div class="row">
+      <div class="col-8"></div>
       <!--商品数量按钮，可进行加减-->
+      <div class="col-4">
+      
         <div id="c_btn">
           <button class="bg-dark text-white">-</button>
           <span>1</span>
@@ -53,7 +57,6 @@
           
         </div>
       </div>
-
     </div>
     <!--详情与评论双标签-->
     <div class="tabs">
