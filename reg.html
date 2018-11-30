@@ -6,113 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>注册新用户</title>
+    <link rel="stylesheet" href="./css/reg.css">
+    <link rel="stylesheet" href="./css/bootstrap.css">
     <style>
-        *{
-            margin: 0;
-            padding: 0;
-        }
-        .login-logo img{
-            margin-left: 20px;
-            height: 45px;
-        }
-        .bg-img{
-            width: 100%;
-            height: 700px;
-        }
-        #container{
-            position: relative;
-        }
-        #reg{
-            margin: 0 auto;
-            width: 440px;
-            height: 496px;
-            background-color: #fff;
-            position: absolute;
-            top: 150px;
-            left: 440px;
-        }
-        #reg-conent{
-            margin: 0 auto;
-            width: 340px;
-            height: 496px;
-           
-        }
-        
-        #reg-conent-text{
-            color: #333;
-            cursor: default;
-            font-size: 18px;
-            width: 120px;
-            text-align: center;
-            padding-bottom: 16px;
-            padding-top: 40px;
-            border-bottom: 2px solid #00c8c8;
-            margin-bottom: 25px;
-        }
-        .input-box input{
-            height: 18px;
-            padding: 10px;
-            width: 310px;
-            margin-top: 20px;
-        }
-        .reg-txt{
-            text-align: right;
-            margin: 20px auto;
-        }
-        #btn-register{
-            width: 100%;
-            height: 40px;
-            padding: 0;
-            font-size: 16px;
-            line-height: 40px;
-            color: #fff;
-            background: #00c8c8;
-            border-radius: 0;
-        }
-        .reg-tips{
-            margin: 40px -30px 30px;
-            text-align: center;
-            
-        }
-        .reg-tips span{
-            font-size: 14px;
-            height: 30px;
-            line-height: 30px;
-            padding: 0 10px;
-            color: #999;
-            
-            
-        }
-        .footer-text{
-            text-align: center;
-            margin: 0px;
-            color: #8C8C8C;
-            font-size: 12px;
-            line-height: 34px;
-        }
-        .ck-info{
-            display: none;
-        }
-        .hid{
-            display: none;
-        }
-        .dis input{
-            height: 18px;
-            padding: 10px;
-            width: 200px;
-            margin-top: 20px;
-        }
-        .dis button{
-            height: 42px;
-            margin-left: 10px;
-        }
-        .dis button a{
-            display: inline-block;
-            height: 42px; 
-            line-height: 42px;
-            color: #aaa;
-            text-decoration: none;
-        }
+        form{
+    background:url(images/login-bg.jpg) no-repeat;
+    background-size:1329px 685px;
+    height: 685px;
+   
+  }
+  form table.table{
+    margin:80px  auto;
+    margin-bottom: 0px;
+    height: 530px;
+    width: 340px;
+    padding:80px 140px;
+    
+    background-color: #fff;
+  }
     </style>
 </head>
 
@@ -122,69 +33,63 @@
             <a href="http://www.ioart.com/"><img src="images/logo-h@2x.png" alt=""></a>
         </div>
     </header>
-    <section>
-        <div class="container">
-            <img src="images/login-bg.jpg" alt="" class="bg-img">
-            <div id="reg">
-                <table></table>
+    <form action="" >
+            <table></table>
+              <table class="table">
+                <tr>
+                  <td>
+                      <div id="reg-conent-text"> 注册新用户</div>
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><input type="text"></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="ck-info">
+                      请输入邮箱或者手机号码
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                      <input type="password" name="login_pwd1" id="login_pwd1" placeholder="密码">
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>
+                    <input type="password" name="login_pwd2" id="login_pwd2" placeholder="确认密码">
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class=" ck-info">密码</span>
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                    <td>
+                      <a href="javascript:;" class="text-white float-left">立即登录</a>
+                    </td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <button  id="btn-register" onclick="reg()" class="btn btn-info float-right">确认注册</button>
+                    </td>
+                    <td></td>
+                  </tr>
+              </table>
+      </form>
 
-                <div id="reg-conent">
-
-                    <div id="reg-conent-text"> 注册新用户</div>
-
-                    <div class="input-box">
-                        <input type="email" name="login_name" id="login_name" value="" placeholder="邮箱或手机">
-                        <span class="ck-info">error</span>
-                        
-
-                    </div>
-                    <div class="hid">
-                        <input type="text" placeholder="验证码">
-                        <button class="">
-                            <a href="#">获取短信验证码</a>
-                        </button>
-                    </div>
-                    <div class="input-box">
-                        <input type="password" name="login_pwd1" id="login_pwd1" placeholder="密码">
-
-
-
-
-                    </div>
-                    <div class="input-box">
-                        <input type="password" name="login_pwd2" id="login_pwd2" placeholder="确认密码"
-                            ">
-                        <span class=" ck-info"></span>
-
-                    </div>
-                    <div class="reg-txt">
-                        <a href="http://www.ioart.com/customer/account/">立即登录</a>
-                    </div>
-
-                    <button  id="btn-register" onclick="reg()">确认注册</button>
-                    <script>
-                        //判断能否提交注册
-                        function reg() {
-                            console.log('reg');
-                            var span1 = $('ck-name-em').innerHTML, span2 = $("ck-pwd-em").innerHTML, span3 = $("ck-pwd-same").innerHTML;
-                            console.log(span1 != '');
-                            console.log(span2 != '');
-                            console.log(span3 != '');
-                            //判断填写是否有错
-                            if (span1 != '' || span2 != '' || span3 != '') {
-                                console.log('填写错误');
-                            } else {
-                                var xhr = new createXhr();
-                                var name = $('login_name').value, pwd = $('login_pwd1').value;
-                                //todo 用ajax提交到后台处理
-                                console.log('可以注册');
-
-                            }
-                        }
-                    </script>
-                    <div class="reg-tips">
-                        <span>加入我们，即刻开始享受不一样的生活</span>
-                    </div>
+                  
+    <div class="reg-tips">
+        <span>加入我们，即刻开始享受不一样的生活</span>
+    </div>
                 </div>
             </div>
         </div>
@@ -195,6 +100,7 @@
         </div>
     </footer>
     <script src="js/common.js"></script>
+    <script src="js/reg.js"></script>
 </body>
 
 </html>
