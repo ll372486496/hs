@@ -57,11 +57,5 @@ username.onfocus=function(){
 //4、提交按钮绑定事件
 //4.1、获取提交按钮
 var sub_btn=document.getElementById('btn-register');
-sub_btn.onclick=function(){
-   var vali=function(ojb){
-       if(ojb.innerHTML==''){}
-   } 
-    
-}
 
 

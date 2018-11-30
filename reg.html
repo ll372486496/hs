@@ -161,10 +161,11 @@
                         <a href="http://www.ioart.com/customer/account/">立即登录</a>
                     </div>
 
-                    <button type="button" id="btn-register" onclick="reg()">确认注册</button>
+                    <button  id="btn-register" onclick="reg()">确认注册</button>
                     <script>
                         //判断能否提交注册
                         function reg() {
+                            console.log('reg');
                             var span1 = $('ck-name-em').innerHTML, span2 = $("ck-pwd-em").innerHTML, span3 = $("ck-pwd-same").innerHTML;
                             console.log(span1 != '');
                             console.log(span2 != '');
