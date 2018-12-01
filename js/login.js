@@ -19,3 +19,16 @@ for(var a of as){
   ul.style.display='block';
  }
 }
+
+
+//登录函数
+function login(){
+  var username=document.getElementById('username').value;
+  var upwd=document.getElementById("password").value
+  var data=`username=${username}&&upwd=${upwd}`;
+  var url='http://localhost:3000/login'
+  console.log(username,upwd);
+  ajax({url,type:'post',data}).then((res)=>{
+    
+  })
+}
