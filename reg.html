@@ -9,21 +9,7 @@
     <link rel="stylesheet" href="./css/reg.css">
     <link rel="stylesheet" href="./css/bootstrap.css">
     <style>
-        form{
-    background:url(images/login-bg.jpg) no-repeat;
-    background-size:1329px 685px;
-    height: 685px;
-   
-  }
-  form table.table{
-    margin:80px  auto;
-    margin-bottom: 0px;
-    height: 530px;
-    width: 340px;
-    padding:80px 140px;
     
-    background-color: #fff;
-  }
     </style>
 </head>
 
@@ -33,73 +19,75 @@
             <a href="http://www.ioart.com/"><img src="images/logo-h@2x.png" alt=""></a>
         </div>
     </header>
-    <form action="" >
+    <form id="reg-form" >
             <table></table>
-              <table class="table">
+            <div>
+              <table class="form-table">
                 <tr>
                   <td>
-                      <div id="reg-conent-text"> 注册新用户</div>
+                      <span> 注册新用户</span>
                   </td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td><input type="text"></td>
-                  <td></td>
+                  
                 </tr>
                 <tr>
                   <td>
+                    <input type="text" id="login_name">
                     <span class="ck-info">
-                      请输入邮箱或者手机号码
+                        请输入邮箱或者手机号码
                     </span>
                   </td>
                 </tr>
+                
                 <tr>
                   <td>
                       <input type="password" name="login_pwd1" id="login_pwd1" placeholder="密码">
                   </td>
-                  <td></td>
+                 
                 </tr>
                 <tr>
                   <td>
                     <input type="password" name="login_pwd2" id="login_pwd2" placeholder="确认密码">
+                    <span class="ck-info">密码</span>
                   </td>
-                  <td></td>
+                  
+                      
+                 
                 </tr>
+                
                 <tr>
-                  <td>
-                    <span class=" ck-info">密码</span>
-                  </td>
-                  <td></td>
+                    <td>
+                      <a href="javascript:;" class="btn btn-info">
+                        立即登录
+                      </a>
+                    </td>
                 </tr>
                 <tr>
                     <td>
-                      <a href="javascript:;" class="text-white float-left">立即登录</a>
+                        <button class="btn btn-info" type="submit">
+                          确认注册
+                        </button>
                     </td>
-                    <td></td>
-                  </tr>
-                  <tr>
+                </tr>
+                <tr>
                     <td>
-                      <button  id="btn-register" onclick="reg()" class="btn btn-info float-right">确认注册</button>
+                        <span>加入我们，即刻开始享受不一样的生活</span>
                     </td>
-                    <td></td>
-                  </tr>
+                   
+                </tr>
               </table>
+            </div>
       </form>
 
                   
-    <div class="reg-tips">
-        <span>加入我们，即刻开始享受不一样的生活</span>
-    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    
+               
     <footer>
         <div class="footer-text">
             Copyright © 2015 <a href="http://www.ioart.com/">ioart.</a> All Rights Reserved
         </div>
     </footer>
     <script src="js/common.js"></script>
+    <script src="js/ajax.js"></script>
     <script src="js/reg.js"></script>
 </body>
 

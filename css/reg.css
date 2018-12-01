@@ -6,74 +6,6 @@
   margin-left: 20px;
   height: 45px;
 }
-.bg-img{
-  width: 100%;
-  height: 700px;
-}
-#container{
-  position: relative;
-}
-#reg{
-  margin: 0 auto;
-  width: 440px;
-  height: 496px;
-  background-color: #fff;
-  position: absolute;
-  top: 150px;
-  left: 440px;
-}
-#reg-conent{
-  margin: 0 auto;
-  width: 340px;
-  height: 496px;
- 
-}
-
-#reg-conent-text{
-  color: #333;
-  cursor: default;
-  font-size: 18px;
-  width: 120px;
-  text-align: center;
-  padding-bottom: 16px;
-  padding-top: 40px;
-  border-bottom: 2px solid #00c8c8;
-  margin-bottom: 25px;
-}
-.input-box input{
-  height: 18px;
-  padding: 10px;
-  width: 310px;
-  margin-top: 20px;
-}
-.reg-txt{
-  text-align: right;
-  margin: 20px auto;
-}
-/* #btn-register{
-  width: 100%;
-  height: 40px;
-  padding: 0;
-  font-size: 16px;
-  line-height: 40px;
-  color: #fff;
-  background: #00c8c8;
-  border-radius: 0;
-} */
-.reg-tips{
-  margin: 40px -30px 30px;
-  text-align: center;
-  
-}
-.reg-tips span{
-  font-size: 14px;
-  height: 30px;
-  line-height: 30px;
-  padding: 0 10px;
-  color: #999;
-  
-  
-}
 .footer-text{
   text-align: center;
   margin: 0px;
@@ -83,24 +15,39 @@
 }
 .ck-info{
   display: none;
+  height:10px;
 }
-.hid{
-  display: none;
+form{
+  background:url(../images/login-bg.jpg) no-repeat;
+  background-size:100% 100%;
+  height: 685px;
+  width: 100%;
 }
-.dis input{
-  height: 18px;
-  padding: 10px;
-  width: 200px;
-  margin-top: 20px;
+form div{
+  height: 530px;
+  width: 400px;
+ 
+  margin: 100px auto 0;
+  background-color: #fff;
 }
-.dis button{
-  height: 42px;
-  margin-left: 10px;
+form table.form-table{
+ width: 75%;
+ margin: 0 auto;
 }
-.dis button a{
-  display: inline-block;
-  height: 42px; 
-  line-height: 42px;
-  color: #aaa;
-  text-decoration: none;
+
+form table.form-table  tr{
+  width: 100%;
+  margin: 0 auto 20px;
+ 
+  display:inline-block;
+}
+form table.form-table tr td{
+  height: 40px;
+  width: 100%;
+}
+form table.form-table tr td input{
+  width: 300px;
+  height: 40px;
+  line-height: 24px;
+
 }
