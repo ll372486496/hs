@@ -52,11 +52,11 @@ form.onsubmit = function (e) {
     var data=`username=${username.value}&&upwd=${upwd1.value}`
     ajax({url,data,type:'post'})
     .then((res)=>{
-      console.log(res.code);
+      
     })
-    console.log('可以注册');
+   
   } else {
     e.preventDefault();
-    console.log('不可以注册');
+   
   }
 }
