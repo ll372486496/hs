@@ -11,9 +11,10 @@ router.post('/reg',function(req,res){
   //判断用户名与密码是否为空，
   if($uname&&$upwd){
     //数据库验证是存在用户名
-    var sql1='SELECT COUNT(*) FROM hs_user WHERE uname=?';
+    var sql1='SELECT * FROM hs_user WHERE uname=?';
     pool1.query(sql1,[$uname],(err1,result1)=>{
       if(err1) throw err1;
+      console.log(result1);
       if(result1.length<1){
         //用户名不存在时，向数据库插入数据 
         console.log('可以注册');
