@@ -46,13 +46,15 @@ upwd1.onblur = upwd2.onblur = function () {
 }
 
 //判断能否提交注册,通过<button type='submit'
-function reg(e) {
+var regbtn=document.getElementById('regbtn');
+regbtn.onclick=function reg(e){
+  
   if (unok && pkok) {
     var url='http://localhost:3000/user/reg';
     var data=`username=${username.value}&&upwd=${upwd1.value}`
     ajax({url,data,type:'post'})
     .then((res)=>{
-      console.log(res.body);
+     
     })
    
   } else {

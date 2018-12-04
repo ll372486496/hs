@@ -7,7 +7,16 @@ app.listen(3000);
 app.use(bodyParser.urlencoded({
   extended:false
 }));
+const session=require('express-session');
+app.use(session({
+   secret:'128位随机字符',
+   resave:false,
+   saveUninitialized:true,
+   cookie:{
+     maxAge:1000*60*60*24,
+   }
+}));
 app.use(cors({
-  origin:'http://127.0.0.1:5050',
+  origin:'http://127.0.0.1:5500',
 }))
 app.use('/user',userRouter);
