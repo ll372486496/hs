@@ -26,9 +26,13 @@ function login(){
   var username=document.getElementById('username').value;
   var upwd=document.getElementById("password").value
   var data=`username=${username}&&upwd=${upwd}`;
-  var url='http://localhost:3000/login'
-  
-  ajax({url,type:'post',data}).then((res)=>{
-    
+  var url='http://localhost:3000/user/login'
+  var dataType='json';
+  ajax({url,type:'post',data,dataType}).then((res)=>{
+    console.log(res);
+    if(res['code']==1){
+      console.log('success');
+      location.href='/index.html';
+    }
   })
 }

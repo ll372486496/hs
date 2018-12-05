@@ -44,14 +44,18 @@ router.post('/reg',function(req,res){
   
 });
 router.post('/login',function(req,res){
+  
   var login=req.body;
   var $uname=login.username;
   var $upwd=login.upwd;
   if($uname&&$upwd){
-   var sql='SELECT id FROM hs_user WHERE username=? AND upwd=?';
-   pool.query(sql,[$uname,$upwd],(err,result)=>{
+   var sql='SELECT uid FROM hs_user WHERE uname=? AND upwd=?';
+   pool2.query(sql,[$uname,$upwd],(err,result)=>{
+     if(err)throw err;
      if(result.length>0){
-       //跳转到首页
+       req.session.uname=$uname;
+       
+       res.send({code:1,msg:'成功'});
      }else{
        res.send({code:-2,msg:'账号或密码错误'});
      }
