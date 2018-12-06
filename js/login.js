@@ -29,9 +29,9 @@ function login(){
   var url='http://localhost:3000/user/login'
   var dataType='json';
   ajax({url,type:'post',data,dataType}).then((res)=>{
-    console.log(res);
-    if(res['code']==1){
-      console.log('success');
+    
+    if(res.code==1){
+     
       location.href='/index.html';
     }
   })

@@ -54,8 +54,8 @@ router.post('/login',function(req,res){
      if(err)throw err;
      if(result.length>0){
        req.session.uname=$uname;
-       
-       res.send({code:1,msg:'成功'});
+       console.log(req.session.uname);
+       res.send({code:1,msg:'成功', uname:req.session.uname});
      }else{
        res.send({code:-2,msg:'账号或密码错误'});
      }

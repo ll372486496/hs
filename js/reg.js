@@ -37,7 +37,7 @@ username.onblur = function () {
 //3、验证密码
 upwd1.onblur = upwd2.onblur = function () {
   if (upwd1.value == upwd2.value && upwd1.value != '') {
-    pkok = true;
+    pdok = true;
     upwdinfo.style.display = 'none';
   } else {
     upwdinfo.innerHTML = '密码不一致';
@@ -45,19 +45,24 @@ upwd1.onblur = upwd2.onblur = function () {
   }
 }
 
-//判断能否提交注册,通过<button type='submit'
+//判断能否提交注册,通过
 var regbtn=document.getElementById('regbtn');
 regbtn.onclick=function reg(e){
   
-  if (unok && pkok) {
+  if (unok && pdok) {
     var url='http://localhost:3000/user/reg';
     var data=`username=${username.value}&&upwd=${upwd1.value}`
-    ajax({url,data,type:'post'})
+    ajax({url,data,type:'post',dataType:'json'})
     .then((res)=>{
-     
+     if(res.code==1){
+       location.href='/login.html'
+     }else if(res.code==-1){
+      
+     }
     })
    
   } else {
+    alert('不能为空');
     e.preventDefault();
    
   }
