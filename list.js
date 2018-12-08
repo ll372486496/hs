@@ -20,6 +20,9 @@ document.onready=function(){
         </div>`;
       }
     productBox.innerHTML=html;
+  }else{
+    html=` <h3>暂无商品</h3>`;
+    productBox.innerHTML=html;
   }
    
   });
