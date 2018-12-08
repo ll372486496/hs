@@ -15,7 +15,7 @@ document.onready=function(){
         /* console.log(product); */
         
         html+=`<div class="product  mt-3"><a href="/product_detail.html?pid=${list[i].pid}">
-        <img src="http://127.0.0.1:3000/${i*1+1}.jpg">
+        <img src="http://127.0.0.1:3000/${list[i].pid}.jpg">
         <h5>${list[i].title.lenght<10?list[i].title:list[i].title.slice(0,10)+'...'}</h5><span>￥${list[i].price}.00</span></a>
         </div>`;
       }
