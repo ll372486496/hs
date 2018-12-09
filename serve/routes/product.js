@@ -9,6 +9,7 @@ router.get('/list',function(req,res){
   if(category_id=='undefined'){
     
     /* console.log(000); */
+   
     var sql=`SELECT * FROM hs_products`;
     pool.query(sql,category_id,(err,result)=>{
       if(err)throw err;
@@ -20,9 +21,11 @@ router.get('/list',function(req,res){
     });
   }else{
     var sql=`SELECT * FROM hs_products WHERE category_id=?`
-    pool.query(sql,category_id,(err,result)=>{
+    
+    pool.query(sql,[category_id],(err,result)=>{
       if(err)throw err;
       if(result.length>0){
+       
         res.send(result);
       }else{
         res.send({code:-2,msg:'无结果'})
