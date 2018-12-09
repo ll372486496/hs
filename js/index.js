@@ -47,5 +47,22 @@ var designers=document.querySelectorAll('.designer-container');
     }
    
   }
+  // 取得搜索框与按钮
+  var nave=document.getElementsByClassName('nave')[0];
+  var searchbtn=nave.querySelectorAll('input')[0];
+  var searchinput=nave.querySelectorAll('input')[1];
+  /* console.log(nave,searchbtn,searchinput); */
+  searchbtn.onclick=function(e){
+    if(searchinput.value.trim()!=''){
+      location.href=`/search.html?keyword=${searchinput.value.trim()}`;
+    }else{
+      e.preventDefault();
+    }
+
+  };
+  searchinput.onkeyup=function(e){
+    if(e.keyCode==13)searchbtn.onclick();
+  }
+
 
 

@@ -79,6 +79,9 @@
     height: 60px;
     background-color: #000;
 }
+.nave input{
+    height: 99%;
+}
 .nav-logo{
     width: 132px;
     height: 45px;
