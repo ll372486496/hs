@@ -8,7 +8,6 @@ router.get('/list',function(req,res){
   
   if(category_id=='undefined'){
     
-    /* console.log(000); */
    
     var sql=`SELECT * FROM hs_products`;
     pool.query(sql,category_id,(err,result)=>{
@@ -35,5 +34,33 @@ router.get('/list',function(req,res){
 
 
  
+});
+router.get('/search',function(req,res){
+  var keyword=req.query.keyword;
+  if(keyword=='undefined'){
+    
+   
+    var sql=`SELECT * FROM hs_products`;
+    pool.query(sql,category_id,(err,result)=>{
+      if(err)throw err;
+      if(result.length>0){
+        res.send(result);
+      }else{
+        res.send({code:-2,msg:'无结果'})
+      }
+    });
+  }else{
+    var sql=`SELECT * FROM hs_products WHERE detail LIKE "%?%" `;
+   
+    pool.query(sql,[keyword],(err,result)=>{
+      if(err)throw err;
+      if(result.length>0){
+       
+        res.send(result);
+      }else{
+        res.send({code:-2,msg:'无结果'})
+      }
+    });
+  }
 });
 module.exports = router;
