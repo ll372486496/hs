@@ -41,7 +41,7 @@ router.get('/search',function(req,res){
     
    
     var sql=`SELECT * FROM hs_products`;
-    pool.query(sql,category_id,(err,result)=>{
+    pool.query(sql,(err,result)=>{
       if(err)throw err;
       if(result.length>0){
         res.send(result);
@@ -50,8 +50,8 @@ router.get('/search',function(req,res){
       }
     });
   }else{
-    var sql=`SELECT * FROM hs_products WHERE detail LIKE "%?%" `;
-   
+    var sql=`SELECT * FROM hs_products WHERE detail LIKE ?`;
+    keyword=`%${keyword}%`;
     pool.query(sql,[keyword],(err,result)=>{
       if(err)throw err;
       if(result.length>0){

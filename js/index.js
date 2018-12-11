@@ -61,7 +61,11 @@ var designers=document.querySelectorAll('.designer-container');
 
   };
   searchinput.onkeyup=function(e){
-    if(e.keyCode==13)searchbtn.onclick();
+    if(searchinput.value.trim()!=''){
+      if(e.keyCode==13)searchbtn.onclick();
+    }else{
+      return;
+    }
   }
 
 
