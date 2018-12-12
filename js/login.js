@@ -32,7 +32,7 @@ function login(){
     
     if(res.code==1){
      
-      location.href='/index.html';
+      location.href='/index.html?uname='+res.uname;
     }
   })
 }

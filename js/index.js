@@ -70,3 +70,12 @@ var designers=document.querySelectorAll('.designer-container');
 
 
 
+  //取得登录/注册所在li当已经登录时，显示欢迎
+  var r=document.getElementById('r-l');
+  /* var isLoginSpan=r.querySelector('span'); */
+  /* console.log(r.textContent); */
+  if(location.search.split('=')[1]){
+    r.textContent=`welcom! ${location.search.split('=')[1]}`;
+  }
+
+
