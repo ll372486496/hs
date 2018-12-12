@@ -74,8 +74,8 @@ var designers=document.querySelectorAll('.designer-container');
   var r=document.getElementById('r-l');
   /* var isLoginSpan=r.querySelector('span'); */
   /* console.log(r.textContent); */
-  if(location.search.split('=')[1]){
-    r.textContent=`welcom! ${location.search.split('=')[1]}`;
+  if(sessionStorage.getItem('uname')){
+    r.textContent=`欢迎回来! ${sessionStorage.getItem('uname')}`;
   }
 
 

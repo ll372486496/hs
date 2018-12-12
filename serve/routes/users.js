@@ -49,13 +49,15 @@ router.post('/login',function(req,res){
   var $uname=login.username;
   var $upwd=login.upwd;
   if($uname&&$upwd){
-   var sql='SELECT uid FROM hs_user WHERE uname=? AND upwd=?';
+   var sql='SELECT uid,uname FROM hs_user WHERE uname=? AND upwd=?';
    pool2.query(sql,[$uname,$upwd],(err,result)=>{
+     console.log(result);
      if(err)throw err;
      if(result.length>0){
-       req.session.uname=$uname;
+       req.session.uname=result[0].uname;
+       req.session.uid=result[0].uid;
        console.log(req.session.uname);
-       res.send({code:1,msg:'成功', uname:req.session.uname});
+       res.send({code:1,msg:'成功', uname:req.session.uname,uid: req.session.uid});
      }else{
        res.send({code:-2,msg:'账号或密码错误'});
      }

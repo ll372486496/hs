@@ -31,8 +31,9 @@ function login(){
   ajax({url,type:'post',data,dataType}).then((res)=>{
     
     if(res.code==1){
-     
-      location.href='/index.html?uname='+res.uname;
+      sessionStorage.setItem('uname',res.uname);
+      sessionStorage.setItem('uid',res.uid);
+      location.href='/index.html';
     }
   })
 }
