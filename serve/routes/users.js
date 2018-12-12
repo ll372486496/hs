@@ -14,7 +14,7 @@ router.post('/reg',function(req,res){
     var sql1='SELECT * FROM hs_user WHERE uname=?';
     pool1.query(sql1,[$uname],(err1,result1)=>{
       if(err1) throw err1;
-      console.log(result1);
+      /* console.log(result1); */
       if(result1.length<1){
         //用户名不存在时，向数据库插入数据 
         console.log('可以注册');
@@ -51,12 +51,12 @@ router.post('/login',function(req,res){
   if($uname&&$upwd){
    var sql='SELECT uid,uname FROM hs_user WHERE uname=? AND upwd=?';
    pool2.query(sql,[$uname,$upwd],(err,result)=>{
-     console.log(result);
+     /* console.log(result); */
      if(err)throw err;
      if(result.length>0){
        req.session.uname=result[0].uname;
        req.session.uid=result[0].uid;
-       console.log(req.session.uname);
+       /* console.log(req.session.uname); */
        res.send({code:1,msg:'成功', uname:req.session.uname,uid: req.session.uid});
      }else{
        res.send({code:-2,msg:'账号或密码错误'});
@@ -66,4 +66,14 @@ router.post('/login',function(req,res){
     res.send({code:-1,msg:'不能为空'});
   }
 })
+router.post('/cart',function(req,res){
+  var uid=Number(req.body.uid) ;
+  /* console.log(uid); */
+  var sql='SELECT hs_cartItem.*,hs_products.* FROM hs_cartItem INNER JOIN hs_products ON hs_cartItem.pid=hs_products.pid WHERE hs_cartItem.uid=?';
+  pool1.query(sql,[uid],(err,result)=>{
+    if(err)throw err;
+   /*  console.log(result); */
+   res.send(result);
+  });
+});
 module.exports = router;
