@@ -34,6 +34,8 @@ function login(){
       sessionStorage.setItem('uname',res.uname);
       sessionStorage.setItem('uid',res.uid);
       location.href='/index.html';
+    }else{
+      alert('账号或密码错误')
     }
   })
 }
