@@ -5,13 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>购物车</title>
+  <link rel="stylesheet" href="cart.css">
   <script src="js/ajax.js"></script>
-  <style>
-    #login-info{
-      width: 100px;
-      height: 40px;
-    }
-  </style>
+ 
 </head>
 <body onload="load()">
   <div id="login-info" >
@@ -22,10 +18,12 @@
   <table>
     
     <thead>
-      <td><input type="checkbox" name="" >全选</td>
+      <td colspan="2"><input type="checkbox" name="" >全选</td>
+      
       <td>名称</td>
+      
       <td>单价</td>
-      <td><input type="number"></td>
+      <td>数量</td>
       <td>总价</td>
       <td><input type="button" value="删除"></td>
     </thead>
@@ -36,49 +34,9 @@
       <td colspan="2"><input type="button" value="结算"></td>
     </tfoot>
   </table>
+ 
 </body>
-<script>
-  var loginInfo=document.getElementById('login-info');
-  var load=function(){
-    if(sessionStorage.getItem('uname')&&sessionStorage.getItem('uid')){
-      loginInfo.innerHTML=`欢迎回来！${sessionStorage.getItem('uname')}`;
-      /* console.log('已经登录'); */
-      //如果登录，请求数据并展现
-      var uid=sessionStorage.getItem('uid');
-      var url=`http://localhost:3000/user/cart`;
-      var data=`uid=${uid}`;
-      ajax({url,data,type:'post',dataType:'json'}).then((res)=>{
-        console.log(res);
-        var cartItemContainer=document.getElementById('cartItemContainer');
-        var html='';
-        for(item of res){
-          html+=`<tr>
-      <td><input type="checkbox" name="" ></td>
-      <td>${item.title}</td>
-      <td>${item.price}</td>
-      <td><input type="number" value='${item.count}'></td>
-      <td>总价</td>
-      <td><input type="button" value="删除"></td>
-    </tr>`;
-
-        }
-        cartItemContainer.innerHTML=html;
-      });
-    }else{
-      
-        var s=4;
-        var t1=setInterval(()=>{
-          loginInfo.innerHTML=`${s}秒后跳转到<a href="/login.html">登录</a>页面`;
-          if(s==0){
-            clearInterval(t1);
-            location.href='/login.html'
-          }
-          s--;
-        },1000)
-       
-      
-      
-    }
-  }
+<script src="cart.js">
+  
 </script>
 </html>
