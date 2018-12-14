@@ -21,7 +21,7 @@ var load = function () {
             <td>${item.price}</td>
             <td><input type="number" value='${item.count}'></td>
             <td>￥${item.price * item.count}</td>
-            <td><input type="button" value="删除"></td>
+            <td><input type="button" value="删除" onclick='del(${item.iid})'></td>
             </tr>`;
 
         }
@@ -80,4 +80,35 @@ var load = function () {
   }
 }
 
+//删除函数
+var del=function(id){
+  var r=confirm('你确定要删除此商品');
+  if(r){
+   var url=`http://localhost:3000/user/del`;
+   var iid = id;
+   var data=`iid=${iid}`;
+   ajax({ url, data, type: 'get', dataType: 'json' }).then((res) => {
+     console.log(res);
+   })
+  }else{
+    return;
+  }
+};
+var delAll=function(){
+  var r=confirm('你确定要删除所有商品');
+  if(r){
+   var url=`http://localhost:3000/user/delAll`;
+   var uid = sessionStorage.getItem('uid');
+   var data=`uid=${uid}`;
+   ajax({ url, data, type: 'get', dataType: 'json' }).then((res) => {
+    if(res.code==1){
+
+    }else{
+      alert('删除失败');
+    }
+  })
+  }else{
+    return;
+  }
+}
 

@@ -69,11 +69,24 @@ router.post('/login',function(req,res){
 router.post('/cart',function(req,res){
   var uid=Number(req.body.uid) ;
   /* console.log(uid); */
-  var sql='SELECT hs_cartItem.*,hs_products.* FROM hs_cartItem INNER JOIN hs_products ON hs_cartItem.pid=hs_products.pid WHERE hs_cartItem.uid=?';
+  var sql='SELECT hs_cartItem.*,hs_products.* FROM hs_cartItem INNER JOIN hs_products ON hs_cartItem.pid=hs_products.pid WHERE hs_cartItem.uid=? AND hs_cartItem.isdel= 0 ';
   pool1.query(sql,[uid],(err,result)=>{
     if(err)throw err;
    /*  console.log(result); */
    res.send(result);
   });
+});
+router.get('/del',function(req,res){
+  var iid=req.query.iid;
+  var sql='UPDATE hs_cartitem SET isdel = 1 WHERE iid = ?';
+  pool1.query(sql,[iid],(err,result)=>{
+    if(err)throw err
+    if(result.affectedRows>0)res.send({code:1,msg:'删除成功'});
+  });
+});
+router.get('/delAll',function(req,res){
+  var uid=req.query.uid;
+  var sql=
+  res.send(uid);
 });
 module.exports = router;
