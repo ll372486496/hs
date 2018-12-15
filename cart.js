@@ -19,8 +19,12 @@ var load = function () {
             <td><img src="http://127.0.0.1:3000/${item.pid}.jpg"></td>
             <td>${item.title.lenght < 10 ? item.title : item.title.slice(0, 10) + '...'}</td>
             <td>${item.price}</td>
-            <td><input type="number" value='${item.count}'></td>
-            <td>￥${item.price * item.count}</td>
+            <td>
+            <button>-</button>
+            <input type="text" value='${item.count}' data-iid=${item.iid}>
+            <button>+</button>
+            </td>
+            <td>￥${(item.price * item.count).toFixed(2)}</td>
             <td><input type="button" value="删除" onclick='del(${item.iid})'></td>
             </tr>`;
 
@@ -57,7 +61,43 @@ var load = function () {
         }
 
 
-        
+        //商品数量的加减
+        //获取减号按钮元素
+        var minbtns=document.querySelectorAll('#cartItemContainer>tr>td:nth-child(5)>button:first-child');
+        /* console.log(minbtns); */
+        //循环绑定事件
+        for(minbtn of minbtns){
+          minbtn.onclick=function(){
+            var btn=this;
+            var iid=Number(btn.nextElementSibling.getAttribute('data-iid')) ;
+            var count=Number(btn.nextElementSibling.value);
+            if(count<1){del(iid)}
+            //执行AJAX操作
+            var url='http://localhost:3000/user/mincount';
+            var data=`iid=${iid}&count=${count}`;
+            ajax({ url, data, type: 'get', dataType: 'json' }).then((res)=>{
+              if(res.code==1)window.location.reload();
+            });
+          };
+        }
+        //获取加号按钮元素
+        var addbtns=document.querySelectorAll('#cartItemContainer>tr>td:nth-child(5)>button:nth-child(3)');
+        /* console.log(addbtns); */
+         //循环绑定事件
+         for(addbtn of addbtns){
+          addbtn.onclick=function(){
+            var btn=this;
+            var iid=Number(btn.previousElementSibling.getAttribute('data-iid'));
+            var count=Number(btn.previousElementSibling.value);
+            if(count==99)return;
+            //执行AJAX操作
+            var url='http://localhost:3000/user/addcount';
+            var data=`iid=${iid}&count=${count}`;
+            ajax({url, data, type: 'get', dataType: 'json' }).then((res)=>{
+              if(res.code==1)window.location.reload();
+            });
+          }
+        }
       }else{
         var table=document.getElementsByTagName('table')[0];
         table.innerHTML=`<a href='/index.html'>还没有商品去购买</a>`
@@ -88,7 +128,11 @@ var del=function(id){
    var iid = id;
    var data=`iid=${iid}`;
    ajax({ url, data, type: 'get', dataType: 'json' }).then((res) => {
-     console.log(res);
+    if(res.code==1){
+      window.location.reload()
+    }else{
+      alert('删除失败');
+    }
    })
   }else{
     return;
@@ -102,7 +146,7 @@ var delAll=function(){
    var data=`uid=${uid}`;
    ajax({ url, data, type: 'get', dataType: 'json' }).then((res) => {
     if(res.code==1){
-
+      window.location.reload()
     }else{
       alert('删除失败');
     }

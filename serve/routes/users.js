@@ -86,7 +86,28 @@ router.get('/del',function(req,res){
 });
 router.get('/delAll',function(req,res){
   var uid=req.query.uid;
-  var sql=
-  res.send(uid);
+  var sql='UPDATE hs_cartitem SET isdel = 1 WHERE uid = ?';
+  pool1.query(sql,[uid],(err,result)=>{
+    if(err)throw err
+    if(result.affectedRows>0)res.send({code:1,msg:'删除成功'});
+  });
+});
+router.get('/addcount',function(req,res){
+  var iid=req.query.iid;
+  var count=Number(req.query.count)+1 ;
+  var sql='UPDATE hs_cartitem SET count = ? WHERE iid = ?';
+  pool1.query(sql,[count,iid],(err,result)=>{
+    if(err)throw err
+    if(result.affectedRows>0)res.send({code:1,msg:'添加成功'});
+  });
+});
+router.get('/mincount',function(req,res){
+  var iid=req.query.iid;
+  var count=Number(req.query.count)-1 ;
+  var sql='UPDATE hs_cartitem SET count = ? WHERE iid = ?';
+  pool1.query(sql,[count,iid],(err,result)=>{
+    if(err)throw err
+    if(result.affectedRows>0)res.send({code:1,msg:'添加成功'});
+  });
 });
 module.exports = router;
