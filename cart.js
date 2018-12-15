@@ -71,12 +71,17 @@ var load = function () {
             var btn=this;
             var iid=Number(btn.nextElementSibling.getAttribute('data-iid')) ;
             var count=Number(btn.nextElementSibling.value);
+            var total=btn.parentNode.nextElementSibling.innerHTML.slice(1);
+            var price=btn.parentNode.previousElementSibling.innerHTML;
+            /* console.log(total,price); */
             if(count<1){del(iid)}
             //执行AJAX操作
             var url='http://localhost:3000/user/mincount';
             var data=`iid=${iid}&count=${count}`;
             ajax({ url, data, type: 'get', dataType: 'json' }).then((res)=>{
-              if(res.code==1)window.location.reload();
+             /*  if(res.code==1)window.location.reload(); */
+             btn.nextElementSibling.value-=1;
+             btn.parentNode.nextElementSibling.innerHTML=`￥${(btn.nextElementSibling.value*price).toFixed(2)}`;
             });
           };
         }
@@ -89,15 +94,23 @@ var load = function () {
             var btn=this;
             var iid=Number(btn.previousElementSibling.getAttribute('data-iid'));
             var count=Number(btn.previousElementSibling.value);
+            var total=btn.parentNode.nextElementSibling.innerHTML.slice(1);
+            var price=btn.parentNode.previousElementSibling.innerHTML;
+            /* console.log(total,price); */
             if(count==99)return;
             //执行AJAX操作
             var url='http://localhost:3000/user/addcount';
             var data=`iid=${iid}&count=${count}`;
             ajax({url, data, type: 'get', dataType: 'json' }).then((res)=>{
-              if(res.code==1)window.location.reload();
+             /*  if(res.code==1)window.location.reload(); */
+             btn.previousElementSibling.value=++count;
+             btn.parentNode.nextElementSibling.innerHTML=`￥${(btn.previousElementSibling.value*price).toFixed(2)}`;
             });
           }
         }
+
+
+        var sum=function(){console.log('sum');}
       }else{
         var table=document.getElementsByTagName('table')[0];
         table.innerHTML=`<a href='/index.html'>还没有商品去购买</a>`
