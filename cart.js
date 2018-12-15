@@ -18,10 +18,10 @@ var load = function () {
             <td><input type="checkbox" name="" ></td>
             <td><img src="http://127.0.0.1:3000/${item.pid}.jpg"></td>
             <td>${item.title.lenght < 10 ? item.title : item.title.slice(0, 10) + '...'}</td>
-            <td>${item.price}</td>
+            <td>${item.price.toFixed(2)}</td>
             <td>
             <button>-</button>
-            <input type="text" value='${item.count}' data-iid=${item.iid}>
+            <input type="text" readonly value='${item.count}' data-iid=${item.iid}>
             <button>+</button>
             </td>
             <td>￥${(item.price * item.count).toFixed(2)}</td>
